@@ -1,6 +1,8 @@
 import {AuthAction, AuthActionEnum, AuthState} from "./types";
 import {UserModel} from "../../../models/UserModel";
 
+
+export const isAdmin: boolean = false;
 const initialState: AuthState = {
     isAuth: false,
     user: {} as UserModel,
