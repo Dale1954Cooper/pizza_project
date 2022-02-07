@@ -1,5 +1,8 @@
+import {UserDataModel} from "./UserDataModel";
+
 export interface UserModel {
-    username: string;
+    id: string;
+    email: string;
     password: string;
-    isAdmin: boolean;
+    userData: UserDataModel;
 }
