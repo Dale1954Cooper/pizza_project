@@ -1,5 +1,5 @@
 import {UserModel} from "../../../models/UserModel";
-import { AppDispatch } from "../../store";
+import {AppDispatch} from "../../store";
 import {
     AuthActionEnum,
     SetAdminAction,
@@ -41,10 +41,10 @@ export const AuthActionCreator = {
                 user.email === email &&
                 user.password === password
             )
-            if(mockUser){
+            if (mockUser) {
                 dispatch(AuthActionCreator.setUser(mockUser))
                 dispatch(AuthActionCreator.setIsAuth(true))
-                if(mockUser.id.slice(-6) === '_admin') {
+                if (mockUser.id.slice(-6) === '_admin') {
                     dispatch(AuthActionCreator.setIsAdmin(true));
                 }
             } else {
@@ -54,6 +54,12 @@ export const AuthActionCreator = {
         } catch (e) {
             console.log("Error in loginAction in auth =>  ", e)
         }
+    },
+
+    logout: () => async (dispatch: AppDispatch) => {
+        dispatch(AuthActionCreator.setUser({} as UserModel));
+        dispatch(AuthActionCreator.setIsAdmin(false));
+        dispatch(AuthActionCreator.setIsAuth(false));
     }
 
 }

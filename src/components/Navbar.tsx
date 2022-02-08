@@ -4,11 +4,13 @@ import {Layout, Menu, Row} from "antd";
 import {useTypedSelector} from '../hooks/useTypedSelector';
 import {useHistory} from "react-router-dom";
 import {RoutesNames} from "../routes/routes";
+import {useActions} from "../hooks/useActions";
 
 
 const Navbar: FC = () => {
     const {isAuth, isAdmin} = useTypedSelector(state => state.authReducer);
-    const history = useHistory()
+    const history = useHistory();
+    const {logout} = useActions();
 
     return (
         <Layout.Header>
@@ -34,7 +36,7 @@ const Navbar: FC = () => {
                             <Menu.Item onClick={() => history.push(RoutesNames.USER_PAGE)}>
                                 User page
                             </Menu.Item>
-                            <Menu.Item>
+                            <Menu.Item onClick={() => logout()}>
                                 Logout
                             </Menu.Item>
                         </Menu>
@@ -49,7 +51,7 @@ const Navbar: FC = () => {
                             <Menu.Item onClick={() => history.push(RoutesNames.MANAGER_PAGE)}>
                                 Manager page
                             </Menu.Item>
-                            <Menu.Item>
+                            <Menu.Item onClick={() => logout()}>
                                 Logout
                             </Menu.Item>
                         </Menu>
