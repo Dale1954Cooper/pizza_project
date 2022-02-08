@@ -1,3 +1,5 @@
+import {UserModel} from "../../../models/UserModel";
+import { AppDispatch } from "../../store";
 import {
     AuthActionEnum,
     SetAdminAction,
@@ -6,7 +8,8 @@ import {
     SetIsLoadingAction,
     SetUserAction
 } from "./types";
-import {UserModel} from "../../../models/UserModel";
+import axios from "axios";
+
 
 export const AuthActionCreator = {
     setIsAuth: (auth: boolean): SetAuthAction => ({
@@ -30,5 +33,27 @@ export const AuthActionCreator = {
         payload
     }),
 
+    login: (email: string, password: string) => async (dispatch: AppDispatch) => {
+        try {
+            dispatch(AuthActionCreator.setIsLoading(true));
+            const res = await axios.get<UserModel[]>('./users.json')
+            const mockUser = res.data.find(user =>
+                user.email === email &&
+                user.password === password
+            )
+            if(mockUser){
+                dispatch(AuthActionCreator.setUser(mockUser))
+                dispatch(AuthActionCreator.setIsAuth(true))
+                if(mockUser.id.slice(-6) === '_admin') {
+                    dispatch(AuthActionCreator.setIsAdmin(true));
+                }
+            } else {
+                dispatch(AuthActionCreator.setError('Invalid username or password'))
+            }
+            dispatch(AuthActionCreator.setIsLoading(false))
+        } catch (e) {
+            console.log("Error in loginAction in auth =>  ", e)
+        }
+    }
 
 }
