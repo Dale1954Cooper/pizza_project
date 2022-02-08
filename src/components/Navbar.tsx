@@ -6,10 +6,8 @@ import {useHistory} from "react-router-dom";
 import {RoutesNames} from "../routes/routes";
 
 
-import {isAdmin} from "../store/reducers/auth/authReducer";
-
 const Navbar: FC = () => {
-    const {isAuth} = useTypedSelector(state => state.authReducer);
+    const {isAuth, isAdmin} = useTypedSelector(state => state.authReducer);
     const history = useHistory()
 
     return (
@@ -36,6 +34,9 @@ const Navbar: FC = () => {
                             <Menu.Item onClick={() => history.push(RoutesNames.USER_PAGE)}>
                                 User page
                             </Menu.Item>
+                            <Menu.Item>
+                                Logout
+                            </Menu.Item>
                         </Menu>
                         :
                         <Menu theme='dark' mode='horizontal' selectable={false}>
@@ -47,6 +48,9 @@ const Navbar: FC = () => {
                             </Menu.Item>
                             <Menu.Item onClick={() => history.push(RoutesNames.MANAGER_PAGE)}>
                                 Manager page
+                            </Menu.Item>
+                            <Menu.Item>
+                                Logout
                             </Menu.Item>
                         </Menu>
                 }
