@@ -1,4 +1,5 @@
-import {UserModel} from "../../../models/UserModel";
+import axios from "axios";
+
 import {AppDispatch} from "../../store";
 import {
     AuthActionEnum,
@@ -8,7 +9,10 @@ import {
     SetIsLoadingAction,
     SetUserAction
 } from "./types";
-import axios from "axios";
+import {UserModel} from "../../../models/UserModel";
+import {GenderEnum} from "../../../models/GenderEnum";
+import {rules} from "../../../utils/rules";
+
 
 
 export const AuthActionCreator = {
@@ -52,9 +56,40 @@ export const AuthActionCreator = {
             }
             dispatch(AuthActionCreator.setIsLoading(false))
         } catch (e) {
-            console.log("Error in loginAction in auth =>  ", e)
+            console.log("Error in loginAction in login =>  ", e)
         }
     },
+
+    registration: (name: string, email: string, password: string, gender?: GenderEnum, date?: Date) =>
+        async (dispatch: AppDispatch) => {
+            try {
+                dispatch(AuthActionCreator.setIsLoading(true));
+                const res = await axios.get<UserModel[]>('./users.json')
+                const mockUser = res.data.find(user =>
+                    user.email === email
+                )
+                if (mockUser) {
+                    dispatch(AuthActionCreator.setIsLoading(false));
+                    dispatch(AuthActionCreator.setError('This email is already in use, try a new one'))
+                    return;
+                }
+                const newUser: UserModel = {
+                    id: rules.generateId(),
+                    email: email,
+                    password: password,
+                    userData: {name: name, userBirthdayDate: date, gender: gender}
+                }
+                res.data.push(newUser);
+
+               // нужно res сохранить в файл //
+
+                dispatch(AuthActionCreator.setUser(newUser))
+                dispatch(AuthActionCreator.setIsAuth(true))
+                dispatch(AuthActionCreator.setIsLoading(false));
+            } catch (e) {
+                console.log("Error in loginAction in registration =>  ", e)
+            }
+        },
 
     logout: () => async (dispatch: AppDispatch) => {
         dispatch(AuthActionCreator.setUser({} as UserModel));

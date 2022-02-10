@@ -1,10 +1,12 @@
 import React, {FC, useState} from 'react';
 import {Button, Form, Input, Select} from "antd";
+
 const {Option} = Select;
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {rules} from "../utils/rules";
 import {GenderEnum} from "../models/GenderEnum";
+import {useActions} from "../hooks/useActions";
 
 
 const RegistrationForm: FC = () => {
@@ -13,9 +15,16 @@ const RegistrationForm: FC = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const {registration} = useActions()
+
+    const submit = () => {
+        registration(name, email, password)
+    }
 
     return (
-        <Form>
+        <Form
+            onFinish={submit}
+        >
             {error && <div style={{color: 'red'}}>{error}</div>}
             <Form.Item
                 label='Name'
