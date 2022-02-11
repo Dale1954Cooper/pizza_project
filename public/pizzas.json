@@ -1,0 +1,36 @@
+[
+  {
+    "name": "pizza1",
+    "description": "tasty",
+    "img": "./path2.img",
+    "tags": ["tag1","tag2","tag3"],
+    "dimensions": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 15.44
+      },
+      {
+        "size": 30,
+        "price": 19.55
+      }
+    ]
+  },
+  {
+    "name": "pizza2",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimensions": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "aaa111",
+    "email": "user1",
+    "password": "pass1",
+    "userData": {
+      "name": "name1"
+    }
+  },
+  {
+    "id": "aaa222",
+    "email": "user2",
+    "password": "pass2",
+    "userData": {
+      "name": "name2"
+    }
+  },
+  {
+    "id": "aaa333_admin",
+    "email": "admin",
+    "password": "admin",
+    "userData": {
+      "name": "admin"
+    }
+  }
+]
