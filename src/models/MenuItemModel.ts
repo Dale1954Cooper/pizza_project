@@ -4,7 +4,7 @@ import {SizePriceModel} from "./SizePriseModel";
 export interface MenuItemModel {
     name: string;
     description?: string;
-    img: string | File | HTMLImageElement;
+    img?: string | File | HTMLImageElement;
     tags?: string[];
     dimension: FoodDimensionEnum;
     sizePrise: SizePriceModel[];

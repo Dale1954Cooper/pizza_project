@@ -7,28 +7,35 @@ import {useActions} from "../hooks/useActions";
 
 
 const MenuSider: FC = () => {
-    const {listNames} = useTypedSelector(state => state.menuReducer)
-    const {loadMenuList} = useActions();
+    const {listNames, lists} = useTypedSelector(state => state.menuReducer)
+    const {loadMenuListName, loadMenuList} = useActions();
     const [isCollapsed, setIsCollapsed] = useState(false);
 
     useEffect(() => {
-        loadMenuList()
-    },[])
+        loadMenuListName()
+    }, [])
 
     const toggleCollapse = () => {
         setIsCollapsed(!isCollapsed);
+    }
+
+    const handleClick = (name: string) => {
+        loadMenuList(name, `./${name}.json`);
     }
 
     return (
         <Layout>
             <Sider collapsible collapsed={isCollapsed} onCollapse={() => toggleCollapse()}>
                 <div className='logo'/>
-                <Menu theme='dark' mode="inline" defaultSelectedKeys={['1']}>
+                <Menu theme='dark' mode="inline" defaultSelectedKeys={['0']}>
                     {listNames.map((item, index) =>
-                        <Menu.Item key={index}>
+                        <Menu.Item key={index} onClick={() => handleClick(item)}>
                             {item}
                         </Menu.Item>
                     )}
+                    <Menu.Item key={4} onClick={() => console.log(lists)}>
+                        Show
+                    </Menu.Item>
                 </Menu>
             </Sider>
         </Layout>
