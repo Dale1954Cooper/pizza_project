@@ -17,41 +17,41 @@ const Navbar: FC = () => {
             <Row justify="end">
                 {!isAuth ?
                     <Menu theme='dark' mode='horizontal' selectable={false}>
-                        <Menu.Item onClick={() => history.push(RoutesNames.LOGIN)}>
+                        <Menu.Item key={1} onClick={() => history.push(RoutesNames.LOGIN)}>
                             Login
                         </Menu.Item>
-                        <Menu.Item onClick={() => history.push(RoutesNames.REGISTRATION)}>
+                        <Menu.Item key={2} onClick={() => history.push(RoutesNames.REGISTRATION)}>
                             Registration
                         </Menu.Item>
-                        <Menu.Item onClick={() => history.push(RoutesNames.MENU)}>
+                        <Menu.Item key={3} onClick={() => history.push(RoutesNames.MENU)}>
                             Menu
                         </Menu.Item>
                     </Menu>
                     :
                     !isAdmin ?
                         <Menu theme='dark' mode='horizontal' selectable={false}>
-                            <Menu.Item onClick={() => history.push(RoutesNames.MENU)}>
+                            <Menu.Item key={4} onClick={() => history.push(RoutesNames.MENU)}>
                                 Menu
                             </Menu.Item>
-                            <Menu.Item onClick={() => history.push(RoutesNames.USER_PAGE)}>
+                            <Menu.Item key={5} onClick={() => history.push(RoutesNames.USER_PAGE)}>
                                 User page
                             </Menu.Item>
-                            <Menu.Item onClick={() => logout()}>
+                            <Menu.Item key={6} onClick={() => logout()}>
                                 Logout
                             </Menu.Item>
                         </Menu>
                         :
                         <Menu theme='dark' mode='horizontal' selectable={false}>
-                            <Menu.Item onClick={() => history.push(RoutesNames.MENU)}>
+                            <Menu.Item key={7} onClick={() => history.push(RoutesNames.MENU)}>
                                 Menu
                             </Menu.Item>
-                            <Menu.Item onClick={() => history.push(RoutesNames.USER_PAGE)}>
+                            <Menu.Item key={8} onClick={() => history.push(RoutesNames.USER_PAGE)}>
                                 User page
                             </Menu.Item>
-                            <Menu.Item onClick={() => history.push(RoutesNames.MANAGER_PAGE)}>
+                            <Menu.Item key={9} onClick={() => history.push(RoutesNames.MANAGER_PAGE)}>
                                 Manager page
                             </Menu.Item>
-                            <Menu.Item onClick={() => logout()}>
+                            <Menu.Item key={10} onClick={() => logout()}>
                                 Logout
                             </Menu.Item>
                         </Menu>
