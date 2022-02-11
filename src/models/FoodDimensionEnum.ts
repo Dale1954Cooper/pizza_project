@@ -1,6 +1,6 @@
 export enum FoodDimensionEnum {
     cm = "cm",
-    gr = 'ge',
+    gr = 'gr',
     liter = 'liter',
 
 }
