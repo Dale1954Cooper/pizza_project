@@ -2,7 +2,7 @@ import {MenuActionEnum, menuActions, MenuState} from "./types";
 import {MenuListModel} from "../../../models/MenuListModel";
 
 const initialState: MenuState = {
-    name: [] as string[],
+    listNames: [] as string[],
     lists: [] as MenuListModel[],
     isLoading: false,
     error: '',
@@ -12,7 +12,7 @@ const initialState: MenuState = {
 export default function menuReducer(state = initialState, action: menuActions): MenuState {
     switch (action.type) {
         case MenuActionEnum.SET_MENU_LIST:
-            return {...state, name: action.payload}
+            return {...state, listNames: action.payload}
         case MenuActionEnum.SET_IS_LOADING:
             return {...state, isLoading: action.payload}
         case MenuActionEnum.SET_ERROR:

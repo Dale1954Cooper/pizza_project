@@ -7,7 +7,7 @@ export enum MenuActionEnum {
 }
 
 export interface MenuState {
-    name: string[];
+    listNames: string[];
     lists: MenuListModel[];
     isLoading: boolean;
     error: string;

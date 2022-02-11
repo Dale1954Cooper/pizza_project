@@ -28,7 +28,7 @@ export const MenuActionCreator = {
             dispatch(MenuActionCreator.setIsLoading(true))
             const res = await axios.get<string[]>('./menuList.json');
             if (res) {
-                dispatch(MenuActionCreator.setMenuList(res.data))
+                dispatch(MenuActionCreator.setMenuList(Object.values(res.data)))
             } else {
                 dispatch(MenuActionCreator.setError('Failed to load menu list'))
             }
