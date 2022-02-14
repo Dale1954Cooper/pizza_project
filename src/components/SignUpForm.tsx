@@ -1,24 +1,23 @@
-import React, {FC, useState} from 'react';
+import React, {FC, FormEvent, useState} from 'react';
 import {Button, Form, Input, Select} from "antd";
-
-const {Option} = Select;
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {rules} from "../utils/rules";
-import {GenderEnum} from "../models/GenderEnum";
 import {useActions} from "../hooks/useActions";
+import {AuthActionCreator} from "../store/reducers/auth/actionCreator";
 
 
-const RegistrationForm: FC = () => {
+const SignUpForm: FC = () => {
     const {error, isLoading} = useTypedSelector(state => state.authReducer)
-    const [name, setName] = useState('')
+    const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const {registration} = useActions()
+    const {signUp} = useActions()
 
-    const submit = () => {
-        registration(name, email, password)
+    const submit = (e: FormEvent) => {
+        e.preventDefault()
+        signUp({firstName, email, password})
     }
 
     return (
@@ -31,7 +30,7 @@ const RegistrationForm: FC = () => {
                 name='name'
                 rules={[rules.required('Please input your email')]}
             >
-                <Input value={name} onChange={e => setName(e.target.value)}/>
+                <Input value={firstName} onChange={e => setFirstName(e.target.value)}/>
             </Form.Item>
             <Form.Item
                 label='Email'
@@ -55,19 +54,17 @@ const RegistrationForm: FC = () => {
                 <Input.Password value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}/>
             </Form.Item>
             <Form.Item>
-                <Select defaultValue={GenderEnum.MALE} style={{width: 120}}>
-                    {(Object.keys(GenderEnum) as Array<keyof typeof GenderEnum>).map(gender =>
-                        <Option key={gender} value={gender}>{gender.toLowerCase()}</Option>
-                    )}
-                </Select>
-            </Form.Item>
-            <Form.Item>
-                <Button type='primary' htmlType='submit' loading={isLoading}>
-                    Create
+                <Button
+                    type='primary'
+                    htmlType='submit'
+                    loading={isLoading}
+                    onClick={submit}
+                >
+                    {isLoading ? 'Loading...' : 'SignUp'}
                 </Button>
             </Form.Item>
         </Form>
     );
 };
 
-export default RegistrationForm;
+export default SignUpForm;

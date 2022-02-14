@@ -1,19 +1,19 @@
 import React, {FC} from 'react';
 import {Card, Layout, Row} from "antd";
 
-import RegistrationForm from "../components/RegistrationForm";
+import SignUpForm from "../components/SignUpForm";
 
 
-const Registration: FC = () => {
+const SignUp: FC = () => {
     return (
         <Layout >
             <Row justify="center" align='middle' className='fullScreen'>
                 <Card>
-                    <RegistrationForm/>
+                    <SignUpForm/>
                 </Card>
             </Row>
         </Layout>
     );
 };
 
-export default Registration;
+export default SignUp;

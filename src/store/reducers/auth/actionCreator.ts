@@ -7,12 +7,13 @@ import {
     SetAuthAction,
     SetErrorAction,
     SetIsLoadingAction,
-    SetUserAction
+    SetNeedVerificationAction,
+    SetUserAction,
+    SignUpData
 } from "./types";
 import {UserModel} from "../../../models/UserModel";
-import {GenderEnum} from "../../../models/GenderEnum";
-import {rules} from "../../../utils/rules";
-
+import {UserDataModel} from "../../../models/UserDataModel";
+import firebase from "../../../firebase";
 
 
 export const AuthActionCreator = {
@@ -36,8 +37,12 @@ export const AuthActionCreator = {
         type: AuthActionEnum.SET_ERROR,
         payload
     }),
+    setNeedVerification: (payload: boolean): SetNeedVerificationAction => ({
+        type: AuthActionEnum.NEED_VERIFICATION,
+        payload
+    }),
 
-    login: (email: string, password: string) => async (dispatch: AppDispatch) => {
+    signIn: (email: string, password: string) => async (dispatch: AppDispatch) => {
         try {
             dispatch(AuthActionCreator.setIsLoading(true));
             const res = await axios.get<UserModel[]>('./users.json')
@@ -60,36 +65,34 @@ export const AuthActionCreator = {
         }
     },
 
-    registration: (name: string, email: string, password: string, gender?: GenderEnum, date?: Date) =>
-        async (dispatch: AppDispatch) => {
-            try {
-                dispatch(AuthActionCreator.setIsLoading(true));
-                const res = await axios.get<UserModel[]>('./users.json')
-                const mockUser = res.data.find(user =>
-                    user.email === email
-                )
-                if (mockUser) {
-                    dispatch(AuthActionCreator.setIsLoading(false));
-                    dispatch(AuthActionCreator.setError('This email is already in use, try a new one'))
-                    return;
-                }
+    signUp: (data: SignUpData) => async (dispatch: AppDispatch) => {
+        try {
+            dispatch(AuthActionCreator.setIsLoading(true));
+            const res = await firebase.auth().createUserWithEmailAndPassword(data.email, data.password);
+            console.log(1)
+            if (res.user) {
                 const newUser: UserModel = {
-                    id: rules.generateId(),
-                    email: email,
-                    password: password,
-                    userData: {name: name, userBirthdayDate: date, gender: gender}
+                    email: data.email,
+                    firstName: data.firstName,
+                    password: data.password,
+                    id: res.user.uid,
+                    userData: {} as UserDataModel
                 }
-                res.data.push(newUser);
-
-               // нужно res сохранить в файл //
-
-                dispatch(AuthActionCreator.setUser(newUser))
-                dispatch(AuthActionCreator.setIsAuth(true))
-                dispatch(AuthActionCreator.setIsLoading(false));
-            } catch (e) {
-                console.log("Error in loginAction in registration =>  ", e)
+                console.log(2)
+                await firebase.firestore().collection('/users').doc(res.user.uid).set(newUser);
+                await res.user.sendEmailVerification();
+                console.log(3)
+                dispatch(AuthActionCreator.setNeedVerification(true));
+                dispatch(AuthActionCreator.setUser(newUser));
+                dispatch(AuthActionCreator.setIsAuth(true));
+                console.log(4)
             }
-        },
+            dispatch(AuthActionCreator.setIsLoading(false));
+        } catch (e) {
+            console.log("Error in loginAction in sign up =>  ", e)
+            dispatch(AuthActionCreator.setError(`${e}`));
+        }
+    },
 
     logout: () => async (dispatch: AppDispatch) => {
         dispatch(AuthActionCreator.setUser({} as UserModel));
