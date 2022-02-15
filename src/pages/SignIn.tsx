@@ -1,18 +1,18 @@
 import React, {FC} from 'react';
 import {Card, Layout, Row} from "antd";
 
-import LoginForm from "../components/LoginForm";
+import SignInForm from "../components/SignInForm";
 
-const Login: FC = () => {
+const SignIn: FC = () => {
     return (
         <Layout>
             <Row justify="center" align='middle' className='fullScreen'>
                 <Card>
-                    <LoginForm/>
+                    <SignInForm/>
                 </Card>
             </Row>
         </Layout>
     );
 };
 
-export default Login;
+export default SignIn;

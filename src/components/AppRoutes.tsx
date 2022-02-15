@@ -18,7 +18,7 @@ const AppRoutes: FC = () => {
                            children={route.pages}
                     />
                 )}
-                <Redirect to={RoutesNames.LOGIN}/>
+                <Redirect to={RoutesNames.SIGN_IN}/>
             </Switch>
             :
             !isAdmin ?

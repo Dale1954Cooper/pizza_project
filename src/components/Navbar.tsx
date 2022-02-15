@@ -17,10 +17,10 @@ const Navbar: FC = () => {
             <Row justify="end">
                 {!isAuth ?
                     <Menu theme='dark' mode='horizontal' selectable={false}>
-                        <Menu.Item key={1} onClick={() => history.push(RoutesNames.LOGIN)}>
+                        <Menu.Item key={1} onClick={() => history.push(RoutesNames.SIGN_IN)}>
                             Login
                         </Menu.Item>
-                        <Menu.Item key={2} onClick={() => history.push(RoutesNames.REGISTRATION)}>
+                        <Menu.Item key={2} onClick={() => history.push(RoutesNames.SIGN_UP)}>
                             Registration
                         </Menu.Item>
                         <Menu.Item key={3} onClick={() => history.push(RoutesNames.MENU)}>

@@ -1,7 +1,7 @@
 import {Component, FC, ReactNode} from "react";
 
-import Login from '../pages/Login';
-import Registration from '../pages/Registration';
+import SignIn from '../pages/SignIn';
+import SignUp from '../pages/SignUp';
 import Menu from '../pages/Menu';
 import UserPage from '../pages/UserPage';
 import ManagerPage from "../pages/ManagerPage";
@@ -14,16 +14,16 @@ export interface RouteModel {
 }
 
 export enum RoutesNames {
-    LOGIN = '/login',
-    REGISTRATION = '/registration',
+    SIGN_IN = '/sign-in',
+    SIGN_UP = '/sign-up',
     MENU = '/menu',
     USER_PAGE = '/user_page',
     MANAGER_PAGE = '/manager_page',
 }
 
 export const publicRoutes: RouteModel[] = [
-    {path: RoutesNames.LOGIN, pages: Login, exact: true},
-    {path: RoutesNames.REGISTRATION, pages: Registration, exact: true},
+    {path: RoutesNames.SIGN_IN, pages: SignIn, exact: true},
+    {path: RoutesNames.SIGN_UP, pages: SignUp, exact: true},
     {path: RoutesNames.MENU, pages: Menu, exact: true},
 ];
 
