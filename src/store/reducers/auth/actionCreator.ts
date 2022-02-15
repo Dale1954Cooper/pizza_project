@@ -9,10 +9,11 @@ import {
     SetIsLoadingAction,
     SetNeedVerificationAction,
     SetUserAction,
-    SignUpData
+    SignInData,
+    SignUpData,
+    SetSignOutAction
 } from "./types";
 import {UserModel} from "../../../models/UserModel";
-import {UserDataModel} from "../../../models/UserDataModel";
 import firebase from "../../../firebase";
 
 
@@ -41,27 +42,18 @@ export const AuthActionCreator = {
         type: AuthActionEnum.NEED_VERIFICATION,
         payload
     }),
+    exit: (): SetSignOutAction => ({
+        type: AuthActionEnum.SIGN_OUT
+    }),
 
-    signIn: (email: string, password: string) => async (dispatch: AppDispatch) => {
+    signIn: (data: SignInData) => async (dispatch: AppDispatch) => {
         try {
             dispatch(AuthActionCreator.setIsLoading(true));
-            const res = await axios.get<UserModel[]>('./users.json')
-            const mockUser = res.data.find(user =>
-                    user.email === email
-                // user.password === password
-            )
-            if (mockUser) {
-                dispatch(AuthActionCreator.setUser(mockUser))
-                dispatch(AuthActionCreator.setIsAuth(true))
-                if (mockUser.id.slice(-6) === '_admin') {
-                    dispatch(AuthActionCreator.setIsAdmin(true));
-                }
-            } else {
-                dispatch(AuthActionCreator.setError('Invalid username or password'))
-            }
+            await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
             dispatch(AuthActionCreator.setIsLoading(false))
         } catch (e) {
-            console.log("Error in loginAction in login =>  ", e)
+            console.log("Error in loginAction in sign in =>  ", e)
+            dispatch(AuthActionCreator.setError(`${e}`));
         }
     },
 
@@ -90,22 +82,26 @@ export const AuthActionCreator = {
     },
 
     getUserById: (id: string) => async (dispatch: AppDispatch) => {
-      try {
-          const user = await firebase.firestore().collection('users').doc(id).get();
-          if (user.exists) {
-              const userData = user.data() as UserModel;
-              dispatch(AuthActionCreator.setUser(userData));
-              dispatch(AuthActionCreator.setIsAuth(true));
-          }
-      }  catch (e) {
-          console.log("Error in loginAction in get user by id =>  ", e)
-      }
+        try {
+            const user = await firebase.firestore().collection('users').doc(id).get();
+            if (user.exists) {
+                const userData = user.data() as UserModel;
+                dispatch(AuthActionCreator.setUser(userData));
+                dispatch(AuthActionCreator.setIsAuth(true));
+            }
+        } catch (e) {
+            console.log("Error in loginAction in get user by id =>  ", e)
+        }
     },
 
-    logout: () => async (dispatch: AppDispatch) => {
-        dispatch(AuthActionCreator.setUser({} as UserModel));
-        dispatch(AuthActionCreator.setIsAdmin(false));
-        dispatch(AuthActionCreator.setIsAuth(false));
+    signOut: () => async (dispatch: AppDispatch) => {
+        try {
+            dispatch(AuthActionCreator.setIsLoading(true));
+            dispatch(AuthActionCreator.exit());
+            dispatch(AuthActionCreator.setIsLoading(true));
+        } catch (e) {
+            console.log("Error in loginAction in log out =>  ", e)
+        }
     }
 
 }

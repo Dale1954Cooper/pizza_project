@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, FormEvent, useState} from 'react';
 import {Form, Input, Button} from 'antd';
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
@@ -11,8 +11,9 @@ const SignIn: FC = () => {
     const [password, setPassword] = useState('');
     const {signIn} = useActions()
 
-    const submit = () => {
-        //signIn(email);
+    const submit = (e: FormEvent) => {
+        e.preventDefault()
+        signIn({email, password});
     }
 
     return (
@@ -41,7 +42,7 @@ const SignIn: FC = () => {
                     loading={isLoading}
                     onClick={submit}
                 >
-                    {isLoading ? 'Loading...' :'Submit'}
+                    {isLoading ? 'Loading...' : 'Submit'}
                 </Button>
             </Form.Item>
         </Form>

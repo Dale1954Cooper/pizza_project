@@ -73,7 +73,7 @@ export interface SetSuccessAction {
     payload: string;
 }
 
-interface SetSignOutAction {
+export interface SetSignOutAction {
     type: AuthActionEnum.SIGN_OUT
 }
 

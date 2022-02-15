@@ -29,6 +29,8 @@ export default function authReducer(state = initialState, action: AuthAction): A
             return {...state, needVerification: action.payload}
         case AuthActionEnum.SET_SUCCESS:
             return {...state, setSuccess: action.payload}
+        case AuthActionEnum.SIGN_OUT:
+            return {...state, user: {} as UserModel, isAuthenticated: false, isAdmin: false, isAuth: false}
         default:
             return state
     }
