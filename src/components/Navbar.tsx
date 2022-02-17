@@ -12,9 +12,6 @@ const Navbar: FC = () => {
     const history = useHistory();
     const {signOut} = useActions();
 
-    console.log('isAuth = ', isAuth);
-    console.log('isAdmin = ', isAdmin);
-
     const signOutHandler = (e: FormEvent) => {
         e.preventDefault();
         signOut()

@@ -11,11 +11,13 @@ import firebase from './firebase';
 
 const App: FC = () => {
     const dispatch = useDispatch()
+    const {authReducer} = useTypedSelector(state => state)
+    console.log(authReducer)
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(AuthActionCreator.setIsLoading(true));
-        const unsubscribe = firebase.auth().onAuthStateChanged(async(user) =>{
-            if(user){
+        const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+            if (user) {
                 await dispatch(AuthActionCreator.getUserById(user.uid));
                 if (!user.emailVerified) {
                     dispatch(AuthActionCreator.setNeedVerification(true))

@@ -1,10 +1,9 @@
 import {AuthAction, AuthActionEnum, AuthState} from "./types";
-import {UserModel} from "../../../models/UserModel";
 
 
 const initialState: AuthState = {
     isAuth: false,
-    user: {} as UserModel,
+    user: null,
     isAdmin: false,
     isAuthenticated: false,
     isLoading: false,
@@ -30,7 +29,7 @@ export default function authReducer(state = initialState, action: AuthAction): A
         case AuthActionEnum.SET_SUCCESS:
             return {...state, setSuccess: action.payload}
         case AuthActionEnum.SIGN_OUT:
-            return {...state, user: {} as UserModel, isAuthenticated: false, isAdmin: false, isAuth: false}
+            return {...state, user: null, isAuthenticated: false, isAdmin: false, isAuth: false}
         default:
             return state
     }

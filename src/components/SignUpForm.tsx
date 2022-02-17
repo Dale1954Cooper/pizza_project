@@ -1,10 +1,10 @@
 import React, {FC, FormEvent, useState} from 'react';
-import {Button, Form, Input, Select} from "antd";
+import {Button, Form, Input} from "antd";
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {rules} from "../utils/rules";
-import {useActions} from "../hooks/useActions";
 import {AuthActionCreator} from "../store/reducers/auth/actionCreator";
+import {useDispatch} from "react-redux";
 
 
 const SignUpForm: FC = () => {
@@ -12,12 +12,12 @@ const SignUpForm: FC = () => {
     const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
-    const {signUp} = useActions()
+    const dispatch = useDispatch()
 
     const submit = (e: FormEvent) => {
-        e.preventDefault()
-        signUp({firstName, email, password})
+        e.preventDefault();
+        dispatch(AuthActionCreator.setIsLoading(true));
+        dispatch(AuthActionCreator.signUp({email,password,firstName}));
     }
 
     return (
@@ -45,13 +45,6 @@ const SignUpForm: FC = () => {
                 rules={[rules.required('Please input your password')]}
             >
                 <Input.Password value={password} onChange={e => setPassword(e.target.value)}/>
-            </Form.Item>
-            <Form.Item
-                label='Confirm password'
-                name='Confirm password'
-                rules={[rules.required('Please input your password')]}
-            >
-                <Input.Password value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}/>
             </Form.Item>
             <Form.Item>
                 <Button

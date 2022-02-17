@@ -3,17 +3,19 @@ import {Form, Input, Button} from 'antd';
 
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {rules} from "../utils/rules";
-import {useActions} from "../hooks/useActions";
+import {useDispatch} from "react-redux";
+import {AuthActionCreator} from "../store/reducers/auth/actionCreator";
 
 const SignIn: FC = () => {
     const {error, isLoading} = useTypedSelector(state => state.authReducer);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {signIn} = useActions()
+    const dispatch = useDispatch()
 
     const submit = (e: FormEvent) => {
-        e.preventDefault()
-        signIn({email, password});
+        e.preventDefault();
+        dispatch(AuthActionCreator.setIsLoading(true));
+        dispatch(AuthActionCreator.signIn({email, password}));
     }
 
     return (

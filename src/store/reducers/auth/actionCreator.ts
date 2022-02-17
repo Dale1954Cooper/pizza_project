@@ -48,12 +48,13 @@ export const AuthActionCreator = {
 
     signIn: (data: SignInData) => async (dispatch: AppDispatch) => {
         try {
-            dispatch(AuthActionCreator.setIsLoading(true));
             await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
+            dispatch(AuthActionCreator.setIsAuth(true));
             dispatch(AuthActionCreator.setIsLoading(false))
         } catch (e) {
             console.log("Error in loginAction in sign in =>  ", e)
             dispatch(AuthActionCreator.setError(`${e}`));
+            dispatch(AuthActionCreator.setIsLoading(false));
         }
     },
 
@@ -71,23 +72,24 @@ export const AuthActionCreator = {
                 await firebase.firestore().collection('/users').doc(res.user.uid).set(newUser)
                 await res.user.sendEmailVerification()
                 dispatch(AuthActionCreator.setNeedVerification(true));
-                dispatch(AuthActionCreator.setIsAuth(true));
                 dispatch(AuthActionCreator.setUser(newUser));
+                dispatch(AuthActionCreator.setIsLoading(false));
             }
             dispatch(AuthActionCreator.setIsLoading(false));
         } catch (e) {
             console.log("Error in loginAction in sign up =>  ", e)
             dispatch(AuthActionCreator.setError(`${e}`));
+            dispatch(AuthActionCreator.setIsLoading(false));
         }
     },
 
     getUserById: (id: string) => async (dispatch: AppDispatch) => {
         try {
             const user = await firebase.firestore().collection('users').doc(id).get();
-            if (user.exists) {
+            if (user) {
                 const userData = user.data() as UserModel;
-                dispatch(AuthActionCreator.setUser(userData));
                 dispatch(AuthActionCreator.setIsAuth(true));
+                dispatch(AuthActionCreator.setUser(userData));
             }
         } catch (e) {
             console.log("Error in loginAction in get user by id =>  ", e)

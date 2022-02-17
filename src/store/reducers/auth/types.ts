@@ -17,7 +17,7 @@ export enum AuthActionEnum {
 export interface AuthState {
     isAuth: boolean;
     isAdmin: boolean;
-    user: UserModel;
+    user: UserModel | null;
     isAuthenticated: boolean;
     isLoading: boolean;
     error: string;
