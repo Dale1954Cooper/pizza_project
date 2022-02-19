@@ -98,11 +98,12 @@ export const AuthActionCreator = {
 
     signOut: () => async (dispatch: AppDispatch) => {
         try {
-            dispatch(AuthActionCreator.setIsLoading(true));
+
             dispatch(AuthActionCreator.exit());
-            dispatch(AuthActionCreator.setIsLoading(true));
+            await firebase.auth().signOut();
         } catch (e) {
             console.log("Error in loginAction in log out =>  ", e)
+            dispatch(AuthActionCreator.setIsLoading(false));
         }
     }
 

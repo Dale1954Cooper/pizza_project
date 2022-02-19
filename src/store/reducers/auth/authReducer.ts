@@ -29,7 +29,15 @@ export default function authReducer(state = initialState, action: AuthAction): A
         case AuthActionEnum.SET_SUCCESS:
             return {...state, setSuccess: action.payload}
         case AuthActionEnum.SIGN_OUT:
-            return {...state, user: null, isAuthenticated: false, isAdmin: false, isAuth: false}
+            return {
+                ...state,
+                user: null,
+                isAuthenticated: false,
+                isAdmin: false,
+                isAuth: false,
+                needVerification: false,
+                isLoading: false,
+            }
         default:
             return state
     }

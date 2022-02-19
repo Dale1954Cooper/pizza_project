@@ -1,25 +1,28 @@
 import React, {FC, FormEvent} from 'react';
 import {Layout, Menu, Row} from "antd";
+import {useDispatch} from 'react-redux';
+import {useHistory} from "react-router-dom";
 
 import {useTypedSelector} from '../hooks/useTypedSelector';
-import {useHistory} from "react-router-dom";
 import {RoutesNames} from "../routes/routes";
-import {useActions} from "../hooks/useActions";
+import {AuthActionCreator} from "../store/reducers/auth/actionCreator";
 
 
 const Navbar: FC = () => {
     const {isAuth, isAdmin} = useTypedSelector(state => state.authReducer);
     const history = useHistory();
-    const {signOut} = useActions();
+    const dispatch = useDispatch();
 
-    const signOutHandler = (e: FormEvent) => {
+
+    function signOutHandler(e: FormEvent) {
         e.preventDefault();
-        signOut()
+        dispatch(AuthActionCreator.setIsLoading(true));
+        dispatch(AuthActionCreator.signOut())
     }
 
     return (
         <Layout.Header>
-            <Row justify="end">
+
                 {!isAuth ?
                     <Menu theme='dark' mode='horizontal' selectable={false}>
                         <Menu.Item key={1} onClick={() => history.push(RoutesNames.SIGN_IN)}>
@@ -41,7 +44,7 @@ const Navbar: FC = () => {
                             <Menu.Item key={5} onClick={() => history.push(RoutesNames.USER_PAGE)}>
                                 User page
                             </Menu.Item>
-                            <Menu.Item key={6} onClick={() => signOutHandler}>
+                            <Menu.Item key={6} onClick={(e) => signOutHandler(e.domEvent)}>
                                 Logout
                             </Menu.Item>
                         </Menu>
@@ -61,7 +64,7 @@ const Navbar: FC = () => {
                             </Menu.Item>
                         </Menu>
                 }
-            </Row>
+
         </Layout.Header>
     );
 };
