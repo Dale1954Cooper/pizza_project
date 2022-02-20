@@ -13,7 +13,7 @@ import {
     SignUpData,
     SetSignOutAction
 } from "./types";
-import {UserModel} from "../../../models/UserModel";
+import {UserModel} from "../../../models/user/UserModel";
 import firebase from "../../../firebase";
 
 

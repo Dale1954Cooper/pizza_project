@@ -1,42 +1,33 @@
+import {MenuListModel} from "../../../models/menu/MenuListModel";
 
-import {MenuListModel} from "../../../models/MenuListModel";
 
 export enum MenuActionEnum {
-    LOAD_MENU_LIST_NAME = 'LOAD_MENU_LIST_NAME',
     LOAD_MENU_LIST = 'LOAD_MENU_LIST',
-    SET_IS_LOADING = 'SET_IS_LOADING',
-    SET_ERROR = 'SET_ERROR',
+    SET_MENU_LIST = 'SET_MENU_LIST',
+    LOAD_CERTAIN_MENU_LIST = 'LOAD_CERTAIN_MENU_LIST',
 }
 
 export interface MenuState {
-    listNames: string[];
-    lists: MenuListModel[];
-    isLoading: boolean;
-    error: string;
+    menu: MenuListModel | null;
+    menuList: string[];
 }
 
-export interface LoadMenuListName {
-    type: MenuActionEnum.LOAD_MENU_LIST_NAME;
-    payload: string[];
-}
+//Actions
 
 export interface LoadMenuList {
-    type: MenuActionEnum.LOAD_MENU_LIST;
-    payload: MenuListModel[];
+    type: MenuActionEnum.LOAD_MENU_LIST
 }
 
-export interface SetIsLoadingAction {
-    type: MenuActionEnum.SET_IS_LOADING;
-    payload: boolean
+export interface SetMenuList {
+    type: MenuActionEnum.SET_MENU_LIST,
+    payload: string[]
 }
 
-export interface SetErrorAction {
-    type: MenuActionEnum.SET_ERROR;
-    payload: string;
+export interface LoadCertainMenuList{
+    type: MenuActionEnum.LOAD_CERTAIN_MENU_LIST
 }
 
-export type menuActions =
-    LoadMenuListName |
+export type MenuAction =
     LoadMenuList |
-    SetIsLoadingAction |
-    SetErrorAction
+    SetMenuList |
+    LoadCertainMenuList

@@ -1,23 +1,19 @@
-import {MenuActionEnum, menuActions, MenuState} from "./types";
-import {MenuListModel} from "../../../models/MenuListModel";
+import {MenuAction, MenuActionEnum, MenuState} from "./types";
+
 
 const initialState: MenuState = {
-    listNames: [] as string[],
-    lists: [] as MenuListModel[],
-    isLoading: false,
-    error: '',
+    menu: null,
+    menuList: [],
 }
 
-export default function menuReducer(state = initialState, action: menuActions): MenuState {
+export default function menuReducer(state = initialState, action: MenuAction): MenuState {
     switch (action.type) {
-        case MenuActionEnum.LOAD_MENU_LIST_NAME:
-            return {...state, listNames: action.payload}
         case MenuActionEnum.LOAD_MENU_LIST:
-            return {...state, lists: action.payload}
-        case MenuActionEnum.SET_IS_LOADING:
-            return {...state, isLoading: action.payload}
-        case MenuActionEnum.SET_ERROR:
-            return {...state, error: action.payload}
+            return {...state}
+        case MenuActionEnum.SET_MENU_LIST:
+            return {...state, menuList: action.payload}
+        case MenuActionEnum.LOAD_CERTAIN_MENU_LIST:
+            return {...state}
         default:
             return state
     }

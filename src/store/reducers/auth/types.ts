@@ -1,6 +1,5 @@
-import {Interface} from "readline";
-import {UserModel} from "../../../models/UserModel";
-import {UserDataModel} from "../../../models/UserDataModel";
+import {UserModel} from "../../../models/user/UserModel";
+
 
 export enum AuthActionEnum {
     SET_AUTH = 'SET_AUTH',
@@ -11,7 +10,6 @@ export enum AuthActionEnum {
     NEED_VERIFICATION = 'NEED_VERIFICATION',
     SET_SUCCESS = 'SET_SUCCESS',
     SIGN_OUT = 'SIGN_OUT',
-
 }
 
 export interface AuthState {

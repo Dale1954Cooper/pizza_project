@@ -11,8 +11,8 @@ import firebase from './firebase';
 
 const App: FC = () => {
     const dispatch = useDispatch()
-    const {authReducer} = useTypedSelector(state => state)
-    console.log(authReducer)
+    const {authReducer, menuReducer} = useTypedSelector(state => state)
+    console.log(menuReducer)
 
     useEffect(() => {
         dispatch(AuthActionCreator.setIsLoading(true));
