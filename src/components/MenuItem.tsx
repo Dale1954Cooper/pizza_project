@@ -7,8 +7,9 @@ const MenuItem: FC<MenuItemModel> = (item) => {
     const {name, img, tags, description, dimension, sizePrise} = item
 
     return (
-        <Card>
-            <div className='menuItem-name'>{name}</div>
+        <Card title={name} className='item'>
+
+
         </Card>
     );
 };

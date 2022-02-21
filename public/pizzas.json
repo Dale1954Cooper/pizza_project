@@ -32,5 +32,107 @@
         "price": 21.15
       }
     ]
+  },
+  {
+    "name": "pizza3",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimensions": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  },
+  {
+    "name": "pizza4",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimensions": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  },
+  {
+    "name": "pizza5",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimensions": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  },
+  {
+    "name": "pizza6",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimensions": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  },
+  {
+    "name": "pizza7",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimensions": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  },
+  {
+    "name": "pizza8",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimensions": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
   }
 ]

@@ -3,3 +3,41 @@
 .fullScreen {
     height: calc(100vh - 64px);
 }
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+   /* justify-content: center; */
+}
+
+.item {
+    padding: 50px 80px;
+    box-sizing: border-box;
+    width: calc(25% - 30px);
+    margin: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+    .item {
+        width: calc(33.33% - 30px);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .item {
+        width: calc(50% - 30px);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .item {
+        width: calc(100% - 30px);
+    }
+}
