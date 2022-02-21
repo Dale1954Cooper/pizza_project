@@ -11,17 +11,18 @@ import {MenuItemModel} from "../models/menu/MenuItemModel";
 const {Content} = Layout
 
 const MenuContent = () => {
-    const {menu} = useTypedSelector(state => state.menuReducer)
-    const dispatch = useDispatch();
-    const currentChoice = 'pizzas';
-
-    useEffect(() => {
-        dispatch(MenuActionCreator.getMoc('pizzas'))
-    }, [])
+    const {currentMenuList} = useTypedSelector(state => state.menuReducer)
 
     return (
         <Content style={{margin: '16px'}}>
-
+            {currentMenuList.map(item =>
+                <MenuItem
+                    key={item.name}
+                    name={item.name}
+                    dimension={item.dimension}
+                    sizePrise={item.sizePrise}
+                />
+            )}
         </Content>
     );
 };

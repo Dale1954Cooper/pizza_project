@@ -13,24 +13,37 @@ const MenuSider: FC = () => {
     const {menuList, menu} = useTypedSelector(state => state.menuReducer);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const dispatch = useDispatch();
+    const [menuName, setMenuName] = useState('')
 
     useEffect(() => {
         dispatch(MenuActionCreator.loadMenuList())
-    }, [])
+    }, []) // will load the menu list
 
     useEffect(() => {
         dispatch(MenuActionCreator.setCurrentListName(menuList[0]))
-    }, [menuList])
+        dispatch(MenuActionCreator.getMoc(menuList[0], menu))
+        setMenuName(menuList[0])
+    }, [menuList]) // will load first menu items
+
+    useEffect(() => {
+        let tempObj = menu.find(e => e.name === menuName)
+        if (tempObj) {
+            dispatch(MenuActionCreator.setCurrentMenuList(tempObj.items))
+        } else {
+            //dispatch(MenuActionCreator.setError('ошибка загрузки меню'))
+        }
+    }, [menu]) // will load current menu items
 
     const setCurrentListData = (name: string) => {
         dispatch(MenuActionCreator.setCurrentListName(name))
         let tempObj = menu.find(e => e.name === name)
-        if(tempObj) {
+        if (tempObj) {
             dispatch(MenuActionCreator.setCurrentMenuList(tempObj.items))
         } else {
-
+            dispatch(MenuActionCreator.getMoc(name, menu))
         }
     }
+
 
     return (
         <Sider collapsible collapsed={isCollapsed} onCollapse={() => setIsCollapsed(!isCollapsed)}>
@@ -39,7 +52,10 @@ const MenuSider: FC = () => {
                 {menuList.map((item, index) =>
                     <Menu.Item
                         key={index}
-                        onClick={() => setCurrentListData(item)}
+                        onClick={() => {
+                            setCurrentListData(item);
+                            setMenuName(item)
+                        }}
                     >
                         {item}
                     </Menu.Item>

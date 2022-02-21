@@ -58,7 +58,7 @@ export const MenuActionCreator = {
         }
     },
 
-    getMoc: (name: string) => async (dispatch: AppDispatch) => {
+    getMoc: (name: string, oldArray: MenuListModel[]) => async (dispatch: AppDispatch) => {
         try {
             const res = await axios.get<MenuItemModel[]>(`./${name}.json`);
             if (res) {
@@ -66,7 +66,7 @@ export const MenuActionCreator = {
                     name: name,
                     items: res.data
                 }
-                const newList: MenuListModel[] = [newMenuList];
+                const newList: MenuListModel[] = [...oldArray,newMenuList];
                 dispatch(MenuActionCreator.setMenu(newList))
             }
         } catch (e) {
