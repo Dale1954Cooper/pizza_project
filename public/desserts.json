@@ -1,0 +1,36 @@
+[
+  {
+    "name": "dessert1",
+    "description": "tasty",
+    "img": "./path2.img",
+    "tags": ["tag1","tag2","tag3"],
+    "dimensions": "gr",
+    "sizePrise": [
+      {
+        "size": 100,
+        "price": 5.00
+      },
+      {
+        "size": 200,
+        "price": 10.00
+      }
+    ]
+  },
+  {
+    "name": "dessert2",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimensions": "gr",
+    "sizePrise": [
+      {
+        "size": 100,
+        "price": 4.50
+      },
+      {
+        "size": 200,
+        "price": 9.00
+      }
+    ]
+  }
+]
