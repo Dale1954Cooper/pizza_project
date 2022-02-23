@@ -4,7 +4,7 @@
     "description": "tasty",
     "img": "./path2.img",
     "tags": ["tag1","tag2","tag3"],
-    "dimensions": "liter",
+    "dimension": "liter",
     "sizePrise": [
       {
         "size": 0.3,
@@ -21,7 +21,58 @@
     "description": "yammy",
     "img": "./path1.img",
     "tags": ["tag4","tag5","tag6"],
-    "dimensions": "liter",
+    "dimension": "liter",
+    "sizePrise": [
+      {
+        "size": 0.3,
+        "price": 0.9
+      },
+      {
+        "size": 0.5,
+        "price": 1.5
+      }
+    ]
+  },
+  {
+    "name": "drink3",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimension": "liter",
+    "sizePrise": [
+      {
+        "size": 0.3,
+        "price": 0.9
+      },
+      {
+        "size": 0.5,
+        "price": 1.5
+      }
+    ]
+  },
+  {
+    "name": "drink4",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimension": "liter",
+    "sizePrise": [
+      {
+        "size": 0.3,
+        "price": 0.9
+      },
+      {
+        "size": 0.5,
+        "price": 1.5
+      }
+    ]
+  },
+  {
+    "name": "drink5",
+    "description": "yammy",
+    "img": "./path1.img",
+    "tags": ["tag4","tag5","tag6"],
+    "dimension": "liter",
     "sizePrise": [
       {
         "size": 0.3,

@@ -7,7 +7,6 @@ const {Content} = Layout
 
 const MenuContent: FC = () => {
     const {currentMenuList} = useTypedSelector(state => state.menuReducer)
-
     return (
         <Content className='container'>
             <div className='row'>
@@ -15,8 +14,11 @@ const MenuContent: FC = () => {
                     <MenuItem
                         key={item.name}
                         name={item.name}
+                        img={item.img}
                         dimension={item.dimension}
                         sizePrise={item.sizePrise}
+                        description={item.description}
+                        tags={item.tags}
                     />
                 )}
             </div>
@@ -25,3 +27,7 @@ const MenuContent: FC = () => {
 };
 
 export default MenuContent;
+
+/*
+
+* */

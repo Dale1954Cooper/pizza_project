@@ -14,14 +14,28 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 -15px;
-   /* justify-content: center; */
 }
 
 .item {
-    padding: 50px 80px;
-    box-sizing: border-box;
     width: calc(25% - 30px);
     margin: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.item__content {
+    margin-bottom: 20px;
+}
+
+.item__contentBtn {
+    position: absolute;
+    bottom: 0;
+}
+
+.item__content-elem {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 @media screen and (max-width: 1200px) {

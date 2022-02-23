@@ -1,10 +1,20 @@
 [
   {
-    "name": "pizza1",
+    "name": "Broccoli pizza",
     "description": "tasty",
-    "img": "./path2.img",
-    "tags": ["tag1","tag2","tag3"],
-    "dimensions": "cm",
+    "img": "./img/pizzas/Broccoli%20pizza.jpg",
+    "tags": [
+      "tag1",
+      "tag2",
+      "tag3",
+      "tag4",
+      "tag5",
+      "tag6",
+      "tag7",
+      "tag8",
+      "tag9"
+    ],
+    "dimension": "cm",
     "sizePrise": [
       {
         "size": 25,
@@ -17,11 +27,18 @@
     ]
   },
   {
-    "name": "pizza2",
+    "name": "Classic",
     "description": "yammy",
-    "img": "./path1.img",
-    "tags": ["tag4","tag5","tag6"],
-    "dimensions": "cm",
+    "img": "./img/pizzas/Classic.jpg",
+    "tags": [
+      "tag1",
+      "tag2",
+      "tag3",
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
     "sizePrise": [
       {
         "size": 25,
@@ -34,11 +51,15 @@
     ]
   },
   {
-    "name": "pizza3",
+    "name": "Meat pizza",
     "description": "yammy",
-    "img": "./path1.img",
-    "tags": ["tag4","tag5","tag6"],
-    "dimensions": "cm",
+    "img": "./img/pizzas/Meat%20pizza.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
     "sizePrise": [
       {
         "size": 25,
@@ -51,11 +72,15 @@
     ]
   },
   {
-    "name": "pizza4",
+    "name": "Four moods",
     "description": "yammy",
-    "img": "./path1.img",
-    "tags": ["tag4","tag5","tag6"],
-    "dimensions": "cm",
+    "img": "./img/pizzas/Four%20moods.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
     "sizePrise": [
       {
         "size": 25,
@@ -68,11 +93,15 @@
     ]
   },
   {
-    "name": "pizza5",
+    "name": "Four seasons",
     "description": "yammy",
-    "img": "./path1.img",
-    "tags": ["tag4","tag5","tag6"],
-    "dimensions": "cm",
+    "img": "./img/pizzas/Four%20seasons.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
     "sizePrise": [
       {
         "size": 25,
@@ -85,11 +114,15 @@
     ]
   },
   {
-    "name": "pizza6",
+    "name": "Ham pizza",
     "description": "yammy",
-    "img": "./path1.img",
-    "tags": ["tag4","tag5","tag6"],
-    "dimensions": "cm",
+    "img": "./img/pizzas/Ham%20pizza.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
     "sizePrise": [
       {
         "size": 25,
@@ -102,11 +135,15 @@
     ]
   },
   {
-    "name": "pizza7",
+    "name": "Jalapeno pizza",
     "description": "yammy",
-    "img": "./path1.img",
-    "tags": ["tag4","tag5","tag6"],
-    "dimensions": "cm",
+    "img": "./img/pizzas/Jalapeno%20pizza.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
     "sizePrise": [
       {
         "size": 25,
@@ -119,11 +156,78 @@
     ]
   },
   {
-    "name": "pizza8",
+    "name": "Mushrooms pizza",
     "description": "yammy",
-    "img": "./path1.img",
-    "tags": ["tag4","tag5","tag6"],
-    "dimensions": "cm",
+    "img": "./img/pizzas/Mushrooms%20pizza.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  },
+  {
+    "name": "Pepperoni",
+    "description": "yammy",
+    "img": "./img/pizzas/Pepperoni.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  },
+  {
+    "name": "Rustic pizza",
+    "description": "yammy",
+    "img": "./img/pizzas/Rustic%20pizza.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
+    "sizePrise": [
+      {
+        "size": 25,
+        "price": 18.80
+      },
+      {
+        "size": 30,
+        "price": 21.15
+      }
+    ]
+  },
+  {
+    "name": "Vegetarian",
+    "description": "yammy",
+    "img": "./img/pizzas/Vegetarian.jpg",
+    "tags": [
+      "tag4",
+      "tag5",
+      "tag6"
+    ],
+    "dimension": "cm",
     "sizePrise": [
       {
         "size": 25,

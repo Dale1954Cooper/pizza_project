@@ -6,7 +6,7 @@ import MenuContent from "../components/MenuContent";
 
 const Menu: FC = () => {
     return (
-        <Layout className='fullScreen'>
+        <Layout style={{minHeight: '100vh'}}>
             <MenuSider/>
             <Layout className='site-layout'>
                 <MenuContent/>
