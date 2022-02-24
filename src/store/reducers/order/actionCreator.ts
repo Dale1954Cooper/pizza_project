@@ -19,7 +19,7 @@ export const OrderActionCreator = {
     addItemToOrder: (order: MenuItemInOrderModel[], item: MenuItemInOrderModel) => (dispatch: AppDispatch) => {
         dispatch(OrderActionCreator.setOrder([...order, item]))
     },
-    
+
     removeItemFromOrder: (order: MenuItemInOrderModel[], item: MenuItemInOrderModel) => (dispatch: AppDispatch) => {
         const index: number = order.findIndex(elem =>
             elem.name === item.name &&
