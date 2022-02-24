@@ -4,7 +4,8 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Menu from '../pages/Menu';
 import UserPage from '../pages/UserPage';
-import ManagerPage from "../pages/ManagerPage";
+import ManagerPage from '../pages/ManagerPage';
+import OrderPage from '../pages/OrderPage'
 
 
 export interface RouteModel {
@@ -19,6 +20,7 @@ export enum RoutesNames {
     MENU = '/menu',
     USER_PAGE = '/user_page',
     MANAGER_PAGE = '/manager_page',
+    ORDER = '/order',
 }
 
 export const publicRoutes: RouteModel[] = [
@@ -30,6 +32,7 @@ export const publicRoutes: RouteModel[] = [
 export const userRoutes: RouteModel[] = [
     {path: RoutesNames.MENU, pages: Menu, exact: true},
     {path: RoutesNames.USER_PAGE, pages: UserPage, exact: true},
+    {path: RoutesNames.ORDER, pages: OrderPage, exact: true},
 ]
 
 export const managerRoutes: RouteModel[] = [
