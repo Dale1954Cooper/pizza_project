@@ -1,25 +1,19 @@
-import {MenuItemModel} from "../../../models/menu/MenuItemModel";
+import {MenuItemInOrderModel} from "../../../models/menu/MenuItemInOrderModel";
 
 export enum OrderActionEnum {
-    ADD_ITEM = 'ADD_ITEM',
-    REMOVE_ITEM = 'REMOVE_ITEM',
+    SET_ORDER = 'SET_ORDER',
     CONFIRM_ORDER = 'CONFIRM_ORDER',
 }
 
 export interface OrderState {
-    orderList: MenuItemModel[]
+    orderList: MenuItemInOrderModel[]
 }
 
 //Actions
 
-export interface AddItemToOrder {
-    type: OrderActionEnum.ADD_ITEM;
-    payload: MenuItemModel[];
-}
-
-export interface RemoveItemFromOrder {
-    type:OrderActionEnum.REMOVE_ITEM;
-    payload: MenuItemModel[];
+export interface SetOrder {
+    type: OrderActionEnum.SET_ORDER;
+    payload: MenuItemInOrderModel[]
 }
 
 export interface ConfirmOrder {
@@ -28,6 +22,5 @@ export interface ConfirmOrder {
 
 
 export type OrderAction =
-    AddItemToOrder |
-    RemoveItemFromOrder |
+    SetOrder |
     ConfirmOrder

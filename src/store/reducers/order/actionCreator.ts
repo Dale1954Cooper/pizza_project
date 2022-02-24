@@ -1,18 +1,36 @@
-import {MenuItemModel} from "../../../models/menu/MenuItemModel";
-import {AddItemToOrder, ConfirmOrder, OrderActionEnum, RemoveItemFromOrder} from "./types";
+import {
+    ConfirmOrder,
+    OrderActionEnum,
+    SetOrder
+} from "./types";
+import {AppDispatch} from "../../store";
+import {MenuItemInOrderModel} from "../../../models/menu/MenuItemInOrderModel";
 
 
 export const OrderActionCreator = {
-    addItem: (list: MenuItemModel[]): AddItemToOrder => ({
-        type: OrderActionEnum.ADD_ITEM,
-        payload: list
-    }),
-    removeItem: (list: MenuItemModel[]): RemoveItemFromOrder => ({
-        type: OrderActionEnum.REMOVE_ITEM,
-        payload: list
+    setOrder: (list: MenuItemInOrderModel[]): SetOrder => ({
+        type: OrderActionEnum.SET_ORDER,
+        payload: list,
     }),
     confirmOrder: (): ConfirmOrder => ({
         type: OrderActionEnum.CONFIRM_ORDER
-    })
+    }),
+
+    addItemToOrder: (order: MenuItemInOrderModel[], item: MenuItemInOrderModel) => (dispatch: AppDispatch) => {
+        dispatch(OrderActionCreator.setOrder([...order, item]))
+    },
+    
+    removeItemFromOrder: (order: MenuItemInOrderModel[], item: MenuItemInOrderModel) => (dispatch: AppDispatch) => {
+        const index: number = order.findIndex(elem =>
+            elem.name === item.name &&
+            elem.sizePrise.size === item.sizePrise.size
+        );
+        if (index > 0) {
+            const orderWithoutItem: MenuItemInOrderModel[] = [
+                ...order.slice(0, index), ...order.slice(index + 1, order.length)
+            ]
+            dispatch(OrderActionCreator.setOrder(orderWithoutItem));
+        }
+    }
 
 }
