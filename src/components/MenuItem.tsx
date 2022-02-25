@@ -1,21 +1,28 @@
 import React, {FC, useState} from 'react';
-import {Button, Card, Image, Select, Tag} from "antd";
-const {Option} = Select
+import {Button, Card, Image} from "antd";
 
 import {MenuItemModel} from "../models/menu/MenuItemModel";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {MenuItemInOrderModel} from "../models/menu/MenuItemInOrderModel";
 import {useDispatch} from "react-redux";
 import {OrderActionCreator} from '../store/reducers/order/actionCreator';
+import Tags from "./Tags";
+import SizePriceComplex from "./SizePriceComplex";
 
+interface Props {
+    item: MenuItemModel,
+    setIsVisible: (is: boolean) => void
+    setCardContent: (content: MenuItemModel) => void
+}
 
-const MenuItem: FC<MenuItemModel> = (item) => {
+const MenuItem: FC<Props> = (props) => {
+    const {item, setIsVisible, setCardContent} = props;
     const {name, img, tags, description, dimension, sizePrise} = item
+
     const {isAuth} = useTypedSelector(state => state.authReducer)
     const {orderList} = useTypedSelector(state => state.orderReducer)
     const dispatch = useDispatch();
     const [sizePriseToOrder, setSizePriseToOrder] = useState(sizePrise[0])
-    const [price, setPrice] = useState(sizePrise[0].price)
 
     const addToOrder = () => {
         const newOrderItem: MenuItemInOrderModel = {
@@ -26,41 +33,29 @@ const MenuItem: FC<MenuItemModel> = (item) => {
         dispatch(OrderActionCreator.addItemToOrder(orderList, newOrderItem));
     }
 
-    const handleChange = (size: number) => {
-        const el = sizePrise.find(i => i.size === size)
-        if (el) {
-            setSizePriseToOrder(el)
-            setPrice(el.price)
-        }
+    const handleMore = () => {
+        setIsVisible(true)
+        setCardContent(item)
     }
 
     return (
-        <Card title={name} className='item' extra={<Button>More</Button>}>
+        <Card title={name}
+              className='item'
+              extra={<Button onClick={handleMore}>More</Button>}
+        >
             <div className='item__content'>
                 <Image width={'100%'} height={250} src={`${img}`} alt={name}/>
 
                 <div className='item__content-elem' style={{display: 'flex', justifyContent: 'space-around'}}>
-                    <Select
-                        defaultValue={sizePrise[0].size}
-                        onChange={handleChange}
-                    >
-                        {sizePrise.map(item =>
-                            <Option
-                                key={item.size}
-                                value={item.size}
-                            >
-                                {item.size} {dimension}
-                            </Option>
-                        )}
-                    </Select>
-                    <h2 style={{left: 30}}>{price}Br</h2>
+                    <SizePriceComplex
+                        sizePrice={sizePrise}
+                        dimension={dimension}
+                        setSizePriseToOrder={setSizePriseToOrder}
+                    />
                 </div>
 
                 <div className='item__content-elem'>
-                    {tags?.map(tag =>
-                        <Tag key={tag}>{tag}</Tag>
-                    )}
-
+                    {tags ? <Tags tags={tags}/> : null}
                 </div>
             </div>
             <div className='item__contentBtn'>

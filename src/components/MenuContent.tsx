@@ -1,24 +1,31 @@
 import {Layout} from 'antd';
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import MenuItem from "./MenuItem";
 import {useTypedSelector} from "../hooks/useTypedSelector";
+import ItemCard from "./ItemCard";
+import {MenuItemModel} from "../models/menu/MenuItemModel";
 
 const {Content} = Layout
 
 const MenuContent: FC = () => {
     const {currentMenuList} = useTypedSelector(state => state.menuReducer)
+    const [isCardVisible, setIsCardVisible] = useState(false)
+    const [cardContent, setCardContent] = useState({} as MenuItemModel)
+
     return (
         <Content className='container'>
+            <ItemCard
+                item={cardContent}
+                isVisible={isCardVisible}
+                setIsVisible={setIsCardVisible}
+            />
             <div className='row'>
-                {currentMenuList.map(item =>
+                {currentMenuList.map((item,index) =>
                     <MenuItem
-                        key={item.name}
-                        name={item.name}
-                        img={item.img}
-                        dimension={item.dimension}
-                        sizePrise={item.sizePrise}
-                        description={item.description}
-                        tags={item.tags}
+                        key={index}
+                        item={item}
+                        setIsVisible={setIsCardVisible}
+                        setCardContent={setCardContent}
                     />
                 )}
             </div>
@@ -27,7 +34,3 @@ const MenuContent: FC = () => {
 };
 
 export default MenuContent;
-
-/*
-
-* */
