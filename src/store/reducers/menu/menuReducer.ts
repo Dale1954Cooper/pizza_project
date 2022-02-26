@@ -9,6 +9,8 @@ const initialState: MenuState = {
     currentListName: '',
     currentMenuList: [] as MenuItemModel[],
     error: '',
+    isCardVisible: false,
+    cardContent: {} as MenuItemModel,
 }
 
 export default function menuReducer(state = initialState, action: MenuAction): MenuState {
@@ -27,6 +29,10 @@ export default function menuReducer(state = initialState, action: MenuAction): M
             return {...state, currentMenuList: action.payload}
         case MenuActionEnum.SET_ERROR:
             return {...state, error: action.payload}
+        case MenuActionEnum.SET_CARD_VISIBLE:
+            return {...state, isCardVisible: action.payload}
+        case MenuActionEnum.SET_CARD_CONTENT:
+            return {...state, cardContent: action.payload}
         default:
             return state
     }

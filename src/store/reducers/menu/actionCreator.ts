@@ -2,11 +2,13 @@ import {AppDispatch} from "../../store";
 import firebase from '../../../firebase'
 import {
     MenuActionEnum,
+    SetCardVisible,
     SetCertainMenuList,
     SetCurrentListName,
     SetCurrentMenuList,
     SetError,
-    SetMenuList
+    SetMenuList,
+    SetCardContent
 } from './types'
 import axios from "axios";
 import {MenuItemModel} from "../../../models/menu/MenuItemModel";
@@ -37,6 +39,14 @@ export const MenuActionCreator = {
         type: MenuActionEnum.SET_ERROR,
         payload: error
     }),
+    setCardVisible: (is: boolean): SetCardVisible => ({
+        type: MenuActionEnum.SET_CARD_VISIBLE,
+        payload: is
+    }),
+    setCardContent: (content: MenuItemModel): SetCardContent => ({
+        type: MenuActionEnum.SET_CARD_CONTENT,
+        payload: content
+    }),
 
     loadMenuList: () => async (dispatch: AppDispatch) => {
         try {
@@ -66,11 +76,22 @@ export const MenuActionCreator = {
                     name: name,
                     items: res.data
                 }
-                const newList: MenuListModel[] = [...oldArray,newMenuList];
+                const newList: MenuListModel[] = [...oldArray, newMenuList];
                 dispatch(MenuActionCreator.setMenu(newList))
             }
         } catch (e) {
             console.log(e);
         }
+    },
+
+    showItemCard: (content: MenuItemModel) => (dispatch: AppDispatch) => {
+        dispatch(MenuActionCreator.setCardContent(content));
+        dispatch(MenuActionCreator.setCardVisible(true));
+    },
+
+    hideItemCard: () => (dispatch: AppDispatch) => {
+        dispatch(MenuActionCreator.setCardVisible(false));
+        dispatch(MenuActionCreator.setCardContent({} as MenuItemModel));
     }
+
 }

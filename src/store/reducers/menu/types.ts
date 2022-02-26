@@ -10,6 +10,9 @@ export enum MenuActionEnum {
     SET_CURRENT_LIST_NAME = 'SET_CURRENT_LIST_NAME',
     SET_CURRENT_MENU_LIST = 'SET_CURRENT_MENU_LIST',
     SET_ERROR = 'SET_ERROR',
+
+    SET_CARD_VISIBLE = 'SET_CARD_VISIBLE',
+    SET_CARD_CONTENT = 'SET_CARD_CONTENT',
 }
 
 export interface MenuState {
@@ -18,6 +21,9 @@ export interface MenuState {
     currentListName: string;
     currentMenuList: MenuItemModel[];
     error: string;
+
+    isCardVisible: boolean;
+    cardContent: MenuItemModel
 }
 
 //Actions
@@ -55,6 +61,16 @@ export interface SetError {
     payload: string
 }
 
+export interface SetCardVisible {
+    type: MenuActionEnum.SET_CARD_VISIBLE,
+    payload: boolean
+}
+
+export interface SetCardContent {
+    type: MenuActionEnum.SET_CARD_CONTENT,
+    payload: MenuItemModel
+}
+
 export type MenuAction =
     LoadMenuList |
     SetMenuList |
@@ -62,4 +78,6 @@ export type MenuAction =
     SetCertainMenuList |
     SetCurrentListName |
     SetCurrentMenuList |
-    SetError
+    SetError |
+    SetCardVisible |
+    SetCardContent
