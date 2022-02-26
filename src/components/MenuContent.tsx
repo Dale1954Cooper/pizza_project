@@ -10,24 +10,17 @@ const {Content} = Layout
 
 
 const MenuContent: FC = () => {
-    const {currentMenuList} = useTypedSelector(state => state.menuReducer)
-    const [isCardVisible, setIsCardVisible] = useState(false)
-    const [cardContent, setCardContent] = useState({} as MenuItemModel)
+    const {currentMenuList, isCardVisible, cardContent} = useTypedSelector(state => state.menuReducer)
 
+    console.log(isCardVisible)
     return (
         <Content className='container'>
-            <ItemCard
-                item={cardContent}
-                isVisible={isCardVisible}
-                setIsVisible={setIsCardVisible}
-            />
+            {isCardVisible && <ItemCard item={cardContent}/>}
             <div className='row'>
-                {currentMenuList.map((item,index) =>
+                {currentMenuList.map((item, index) =>
                     <MenuItem
                         key={index}
                         item={item}
-                        setIsVisible={setIsCardVisible}
-                        setCardContent={setCardContent}
                     />
                 )}
             </div>

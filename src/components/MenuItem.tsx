@@ -8,19 +8,14 @@ import {MenuItemModel} from '../models/menu/MenuItemModel';
 import {MenuItemInOrderModel} from '../models/menu/MenuItemInOrderModel';
 import Tags from './Tags';
 import SizePriceComplex from './SizePriceComplex';
+import {MenuActionCreator} from "../store/reducers/menu/actionCreator";
 
 
 interface Props {
     item: MenuItemModel,
-    setIsVisible: (is: boolean) => void
-    setCardContent: (content: MenuItemModel) => void
 }
 
-const MenuItem: FC<Props> = ({
-                                 item,
-                                 setIsVisible,
-                                 setCardContent
-                             }) => {
+const MenuItem: FC<Props> = ({item}) => {
     const {name, img, tags, dimension, sizePrise} = item
 
     const {isAuth} = useTypedSelector(state => state.authReducer)
@@ -38,8 +33,7 @@ const MenuItem: FC<Props> = ({
     }
 
     const handleMore = () => {
-        setIsVisible(true)
-        setCardContent(item)
+        dispatch(MenuActionCreator.showItemCard(item))
     }
 
     return (
