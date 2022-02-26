@@ -1,10 +1,11 @@
 import React, {FC, FormEvent, useState} from 'react';
 import {Form, Input, Button} from 'antd';
 
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {rules} from "../utils/rules";
-import {useDispatch} from "react-redux";
-import {AuthActionCreator} from "../store/reducers/auth/actionCreator";
+import {useTypedSelector} from '../hooks/useTypedSelector';
+import {AuthActionCreator} from '../store/reducers/auth/actionCreator';
+import {rules} from '../utils/rules';
+import {useDispatch} from 'react-redux';
+
 
 const SignIn: FC = () => {
     const {error, isLoading} = useTypedSelector(state => state.authReducer);

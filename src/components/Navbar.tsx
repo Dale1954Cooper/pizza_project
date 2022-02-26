@@ -1,12 +1,11 @@
 import React, {FC, FormEvent} from 'react';
-import {Layout, Menu, Row} from "antd";
 import {useDispatch} from 'react-redux';
-import {useHistory} from "react-router-dom";
+import {useHistory} from 'react-router-dom';
+import {Layout, Menu} from 'antd';
 
 import {useTypedSelector} from '../hooks/useTypedSelector';
-import {RoutesNames} from "../routes/routes";
-import {AuthActionCreator} from "../store/reducers/auth/actionCreator";
-import {MenuItemInOrderModel} from "../models/menu/MenuItemInOrderModel";
+import {AuthActionCreator} from '../store/reducers/auth/actionCreator';
+import {RoutesNames} from '../routes/routes';
 
 
 const Navbar: FC = () => {
@@ -14,8 +13,6 @@ const Navbar: FC = () => {
     const {orderList} = useTypedSelector(state => state.orderReducer)
     const history = useHistory();
     const dispatch = useDispatch();
-
-    console.log(orderList)
 
     function signOutHandler(e: FormEvent) {
         e.preventDefault();

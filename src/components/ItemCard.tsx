@@ -1,10 +1,12 @@
 import React, {FC} from 'react';
-import {Modal} from "antd";
-import {MenuItemModel} from "../models/menu/MenuItemModel";
-import {MenuItemInOrderModel} from "../models/menu/MenuItemInOrderModel";
-import {OrderActionCreator} from "../store/reducers/order/actionCreator";
-import {useDispatch} from "react-redux";
-import {useTypedSelector} from "../hooks/useTypedSelector";
+import {Modal} from 'antd';
+import {useDispatch} from 'react-redux';
+
+import {useTypedSelector} from '../hooks/useTypedSelector';
+import {OrderActionCreator} from '../store/reducers/order/actionCreator';
+import {MenuItemModel} from '../models/menu/MenuItemModel';
+import {MenuItemInOrderModel} from '../models/menu/MenuItemInOrderModel';
+
 
 interface Props {
     item: MenuItemModel
@@ -12,9 +14,12 @@ interface Props {
     isVisible: boolean
 }
 
-const ItemCard: FC<Props> = (props) => {
-    const {isVisible, setIsVisible} = props
-    const {name, img, tags, description, dimension, sizePrise} = props.item
+const ItemCard: FC<Props> = ({
+                                 item,
+                                 setIsVisible,
+                                 isVisible
+                             }) => {
+    const {name, img, tags, description, dimension, sizePrise} = item
     const dispatch = useDispatch()
     const {orderList} = useTypedSelector(state => state.orderReducer)
 

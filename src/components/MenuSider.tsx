@@ -1,12 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {Layout, Menu} from 'antd';
-import Sider from "antd/es/layout/Sider";
+import {Menu} from 'antd';
+import Sider from 'antd/es/layout/Sider';
 
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {MenuActionCreator} from "../store/reducers/menu/actionCreator";
-import {MenuItemModel} from "../models/menu/MenuItemModel";
-import {MenuListModel} from "../models/menu/MenuListModel";
+import {useTypedSelector} from '../hooks/useTypedSelector';
+import {MenuActionCreator} from '../store/reducers/menu/actionCreator';
 
 
 const MenuSider: FC = () => {

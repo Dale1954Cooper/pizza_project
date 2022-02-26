@@ -1,13 +1,14 @@
 import React, {FC, useState} from 'react';
-import {Button, Card, Image} from "antd";
+import {useDispatch} from 'react-redux';
+import {Button, Card, Image} from 'antd';
 
-import {MenuItemModel} from "../models/menu/MenuItemModel";
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {MenuItemInOrderModel} from "../models/menu/MenuItemInOrderModel";
-import {useDispatch} from "react-redux";
+import {useTypedSelector} from '../hooks/useTypedSelector';
 import {OrderActionCreator} from '../store/reducers/order/actionCreator';
-import Tags from "./Tags";
-import SizePriceComplex from "./SizePriceComplex";
+import {MenuItemModel} from '../models/menu/MenuItemModel';
+import {MenuItemInOrderModel} from '../models/menu/MenuItemInOrderModel';
+import Tags from './Tags';
+import SizePriceComplex from './SizePriceComplex';
+
 
 interface Props {
     item: MenuItemModel,
@@ -15,9 +16,12 @@ interface Props {
     setCardContent: (content: MenuItemModel) => void
 }
 
-const MenuItem: FC<Props> = (props) => {
-    const {item, setIsVisible, setCardContent} = props;
-    const {name, img, tags, description, dimension, sizePrise} = item
+const MenuItem: FC<Props> = ({
+                                 item,
+                                 setIsVisible,
+                                 setCardContent
+                             }) => {
+    const {name, img, tags, dimension, sizePrise} = item
 
     const {isAuth} = useTypedSelector(state => state.authReducer)
     const {orderList} = useTypedSelector(state => state.orderReducer)

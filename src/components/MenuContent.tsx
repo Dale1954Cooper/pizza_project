@@ -1,11 +1,13 @@
-import {Layout} from 'antd';
 import React, {FC, useState} from 'react';
-import MenuItem from "./MenuItem";
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import ItemCard from "./ItemCard";
-import {MenuItemModel} from "../models/menu/MenuItemModel";
+import {Layout} from 'antd';
+
+import {useTypedSelector} from '../hooks/useTypedSelector';
+import {MenuItemModel} from '../models/menu/MenuItemModel';
+import MenuItem from './MenuItem';
+import ItemCard from './ItemCard';
 
 const {Content} = Layout
+
 
 const MenuContent: FC = () => {
     const {currentMenuList} = useTypedSelector(state => state.menuReducer)

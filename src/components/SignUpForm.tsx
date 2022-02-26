@@ -1,10 +1,10 @@
 import React, {FC, FormEvent, useState} from 'react';
-import {Button, Form, Input} from "antd";
+import {useDispatch} from 'react-redux';
+import {Button, Form, Input} from 'antd';
 
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {rules} from "../utils/rules";
-import {AuthActionCreator} from "../store/reducers/auth/actionCreator";
-import {useDispatch} from "react-redux";
+import {useTypedSelector} from '../hooks/useTypedSelector';
+import {AuthActionCreator} from '../store/reducers/auth/actionCreator';
+import {rules} from '../utils/rules';
 
 
 const SignUpForm: FC = () => {

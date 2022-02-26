@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
 
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {managerRoutes, publicRoutes, RoutesNames, userRoutes} from "../routes/routes";
+import {useTypedSelector} from '../hooks/useTypedSelector';
+import {managerRoutes, publicRoutes, RoutesNames, userRoutes} from '../routes/routes';
 
 
 const AppRoutes: FC = () => {

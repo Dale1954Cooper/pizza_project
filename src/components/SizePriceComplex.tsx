@@ -1,9 +1,11 @@
-import {Select} from 'antd';
 import React, {FC, useState} from 'react';
-import {SizePriceModel} from "../models/menu/SizePriseModel";
-import {FoodDimensionEnum} from "../models/menu/FoodDimensionEnum";
+import {Select} from 'antd';
+
+import {SizePriceModel} from '../models/menu/SizePriseModel';
+import {FoodDimensionEnum} from '../models/menu/FoodDimensionEnum';
 
 const {Option} = Select
+
 
 interface Props {
     sizePrice: SizePriceModel[]

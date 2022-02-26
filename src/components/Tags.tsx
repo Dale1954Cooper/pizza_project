@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {Tag} from "antd";
+import {Tag} from 'antd';
+
 
 interface Props {
     tags: string[]
