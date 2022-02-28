@@ -7,5 +7,5 @@ export interface MenuItemModel {
     img?: string | File | HTMLImageElement;
     tags?: string[];
     dimension: FoodDimensionEnum;
-    sizePrise: SizePriceModel[];
+    sizePrice: SizePriceModel[];
 }

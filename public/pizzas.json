@@ -15,7 +15,7 @@
       "tag9"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 15.44
@@ -39,7 +39,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -60,7 +60,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -81,7 +81,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -102,7 +102,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -123,7 +123,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -144,7 +144,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -165,7 +165,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -186,7 +186,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -207,7 +207,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80
@@ -228,7 +228,7 @@
       "tag6"
     ],
     "dimension": "cm",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 25,
         "price": 18.80

@@ -9,7 +9,7 @@
       "tag3"
     ],
     "dimension": "gr",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 100,
         "price": 5.00
@@ -30,7 +30,7 @@
       "tag6"
     ],
     "dimension": "gr",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 100,
         "price": 4.50
@@ -51,7 +51,7 @@
       "tag6"
     ],
     "dimension": "gr",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 100,
         "price": 4.50
@@ -68,7 +68,7 @@
     "img": "./path1.img",
     "tags": ["tag4","tag5","tag6"],
     "dimension": "gr",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 100,
         "price": 4.50
@@ -85,7 +85,7 @@
     "img": "./path1.img",
     "tags": ["tag4","tag5","tag6"],
     "dimension": "gr",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 100,
         "price": 4.50
@@ -102,7 +102,7 @@
     "img": "./path1.img",
     "tags": ["tag4","tag5","tag6"],
     "dimension": "gr",
-    "sizePrise": [
+    "sizePrice": [
       {
         "size": 100,
         "price": 4.50

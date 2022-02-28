@@ -16,12 +16,12 @@ interface Props {
 }
 
 const ItemCard: FC<Props> = ({item}) => {
-    const {name, img, tags, description, dimension, sizePrise} = item
+    const {name, img, tags, description, dimension, sizePrice} = item
     const dispatch = useDispatch()
     const {orderList} = useTypedSelector(state => state.orderReducer)
     const {isAuth} = useTypedSelector(state => state.authReducer)
     const {isCardVisible} = useTypedSelector(state => state.menuReducer)
-    const [sizePriseToOrder, setSizePriseToOrder] = useState(sizePrise[0])
+    const [sizePriseToOrder, setSizePriceToOrder] = useState(sizePrice[0])
 
     const handleCancel = () => {
         dispatch(MenuActionCreator.hideItemCard())
@@ -32,7 +32,8 @@ const ItemCard: FC<Props> = ({item}) => {
             const newOrderItem: MenuItemInOrderModel = {
                 name: name,
                 dimension: dimension,
-                sizePrise: sizePriseToOrder,
+                sizePrice: sizePriseToOrder,
+                count: 1,
             }
             dispatch(OrderActionCreator.addItemToOrder(orderList, newOrderItem));
         } else {
@@ -65,9 +66,9 @@ const ItemCard: FC<Props> = ({item}) => {
 
             <div className='item__content-elem' style={{display: 'flex', justifyContent: 'space-around'}}>
                 <SizePriceComplex
-                    sizePrice={sizePrise}
+                    sizePrice={sizePrice}
                     dimension={dimension}
-                    setSizePriseToOrder={setSizePriseToOrder}
+                    setSizePriseToOrder={setSizePriceToOrder}
                 />
             </div>
 

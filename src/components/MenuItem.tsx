@@ -16,18 +16,19 @@ interface Props {
 }
 
 const MenuItem: FC<Props> = ({item}) => {
-    const {name, img, tags, dimension, sizePrise} = item
+    const {name, img, tags, dimension, sizePrice} = item
 
     const {isAuth} = useTypedSelector(state => state.authReducer)
     const {orderList} = useTypedSelector(state => state.orderReducer)
     const dispatch = useDispatch();
-    const [sizePriseToOrder, setSizePriseToOrder] = useState(sizePrise[0])
+    const [sizePriceToOrder, setSizePriceToOrder] = useState(sizePrice[0])
 
     const addToOrder = () => {
         const newOrderItem: MenuItemInOrderModel = {
             name: name,
             dimension: dimension,
-            sizePrise: sizePriseToOrder,
+            sizePrice: sizePriceToOrder,
+            count: 1,
         }
         dispatch(OrderActionCreator.addItemToOrder(orderList, newOrderItem));
     }
@@ -46,9 +47,9 @@ const MenuItem: FC<Props> = ({item}) => {
 
                 <div className='item__content-elem' style={{display: 'flex', justifyContent: 'space-around'}}>
                     <SizePriceComplex
-                        sizePrice={sizePrise}
+                        sizePrice={sizePrice}
                         dimension={dimension}
-                        setSizePriseToOrder={setSizePriseToOrder}
+                        setSizePriseToOrder={setSizePriceToOrder}
                     />
                 </div>
 
