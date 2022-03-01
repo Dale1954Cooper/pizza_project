@@ -4,11 +4,11 @@ import {useDispatch} from 'react-redux';
 
 import {useTypedSelector} from '../hooks/useTypedSelector';
 import {OrderActionCreator} from '../store/reducers/order/actionCreator';
+import {MenuActionCreator} from "../store/reducers/menu/actionCreator";
 import {MenuItemModel} from '../models/menu/MenuItemModel';
 import {MenuItemInOrderModel} from '../models/menu/MenuItemInOrderModel';
 import SizePriceComplex from "./SizePriceComplex";
 import Tags from "./Tags";
-import {MenuActionCreator} from "../store/reducers/menu/actionCreator";
 
 
 interface Props {
@@ -32,10 +32,12 @@ const ItemCard: FC<Props> = ({item}) => {
             const newOrderItem: MenuItemInOrderModel = {
                 name: name,
                 dimension: dimension,
-                sizePrice: sizePriseToOrder,
+                size: sizePriseToOrder.size,
+                price: sizePriseToOrder.price,
                 count: 1,
             }
             dispatch(OrderActionCreator.addItemToOrder(orderList, newOrderItem));
+            dispatch(OrderActionCreator.calculateTotalPrice(orderList));
         } else {
             handleCancel();
             message.warning("First, log in to your account or register",5);

@@ -4,11 +4,11 @@ import {Button, Card, Image} from 'antd';
 
 import {useTypedSelector} from '../hooks/useTypedSelector';
 import {OrderActionCreator} from '../store/reducers/order/actionCreator';
+import {MenuActionCreator} from "../store/reducers/menu/actionCreator";
 import {MenuItemModel} from '../models/menu/MenuItemModel';
 import {MenuItemInOrderModel} from '../models/menu/MenuItemInOrderModel';
 import Tags from './Tags';
 import SizePriceComplex from './SizePriceComplex';
-import {MenuActionCreator} from "../store/reducers/menu/actionCreator";
 
 
 interface Props {
@@ -27,10 +27,12 @@ const MenuItem: FC<Props> = ({item}) => {
         const newOrderItem: MenuItemInOrderModel = {
             name: name,
             dimension: dimension,
-            sizePrice: sizePriceToOrder,
+            size: sizePriceToOrder.size,
+            price: sizePriceToOrder.price,
             count: 1,
         }
         dispatch(OrderActionCreator.addItemToOrder(orderList, newOrderItem));
+        dispatch(OrderActionCreator.calculateTotalPrice(orderList));
     }
 
     const handleMore = () => {

@@ -12,7 +12,6 @@ const {Content} = Layout
 const MenuContent: FC = () => {
     const {currentMenuList, isCardVisible, cardContent} = useTypedSelector(state => state.menuReducer)
 
-    console.log(isCardVisible)
     return (
         <Content className='container'>
             {isCardVisible && <ItemCard item={cardContent}/>}

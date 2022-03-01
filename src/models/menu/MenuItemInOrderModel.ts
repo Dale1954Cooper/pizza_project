@@ -5,6 +5,7 @@ import {SizePriceModel} from "./SizePriseModel";
 export interface MenuItemInOrderModel {
     name: string;
     dimension: FoodDimensionEnum;
-    sizePrice: SizePriceModel;
+    size: number,
+    price: number;
     count: number;
 }
