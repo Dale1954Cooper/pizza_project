@@ -1,10 +1,10 @@
 import {OrderAction, OrderActionEnum, OrderState} from "./types";
-import {MenuItemModel} from "../../../models/menu/MenuItemModel";
 import {MenuItemInOrderModel} from "../../../models/menu/MenuItemInOrderModel";
 
 
 const initialState: OrderState = {
-    orderList: [] as MenuItemInOrderModel[]
+    orderList: [] as MenuItemInOrderModel[],
+    totalPrice: 0,
 }
 
 export default function orderReducer(state=initialState, action: OrderAction): OrderState {
@@ -13,6 +13,8 @@ export default function orderReducer(state=initialState, action: OrderAction): O
             return {...state, orderList: action.payload}
         case OrderActionEnum.CONFIRM_ORDER:
             return {...state, orderList: [] as MenuItemInOrderModel[]}
+        case OrderActionEnum.SET_TOTAL_PRICE:
+            return {...state, totalPrice: action.payload}
         default:
             return state
     }
