@@ -38,6 +38,27 @@
     padding-bottom: 5px;
 }
 
+.listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.listItem-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-left: 10px;
+}
+
+
+.center {
+    justify-content: center!important;
+}
+
 @media screen and (max-width: 1200px) {
     .item {
         width: calc(33.33% - 30px);
