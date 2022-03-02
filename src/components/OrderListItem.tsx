@@ -23,7 +23,7 @@ const OrderListItem: FC<Props> = ({item, fun}) => {
                 <h2>{name}</h2>
                 <h2>{size} {dimension}</h2>
                 <h2>{count}</h2>
-                <h2>{price}Br</h2>
+                <h2>{price} Br</h2>
             </div>
             <div className='listItem-container center'>
                 <Button icon={<CloseOutlined/>} onClick={deleteItem}/>

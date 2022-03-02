@@ -17,12 +17,12 @@ const OrderFooter: FC<Props> = ({price}) => {
     }
 
     return (
-        <Footer className='listItem'>
+        <Footer className='listItem' >
             <div>
                 <Button onClick={removeAll}>Remove all</Button>
             </div>
             <div className='listItem' style={{width: '20vw'}}>
-                <h1>{price}</h1>
+                <h1 style={{fontSize: 24}}>{price.toFixed(2)} Br</h1>
                 <Button type='primary'>Go to Order</Button>
             </div>
         </Footer>
