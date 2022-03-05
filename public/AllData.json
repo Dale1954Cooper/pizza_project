@@ -1,0 +1,479 @@
+{
+  "pizzas": [
+    {
+      "name": "Broccoli pizza",
+      "description": "tasty",
+      "img": "./img/pizzas/Broccoli%20pizza.jpg",
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3",
+        "tag4",
+        "tag5",
+        "tag6",
+        "tag7",
+        "tag8",
+        "tag9"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 15.44
+        },
+        {
+          "size": 30,
+          "price": 19.55
+        }
+      ]
+    },
+    {
+      "name": "Classic",
+      "description": "yammy",
+      "img": "./img/pizzas/Classic.jpg",
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3",
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Meat pizza",
+      "description": "yammy",
+      "img": "./img/pizzas/Meat%20pizza.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Four moods",
+      "description": "yammy",
+      "img": "./img/pizzas/Four%20moods.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Four seasons",
+      "description": "yammy",
+      "img": "./img/pizzas/Four%20seasons.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Ham pizza",
+      "description": "yammy",
+      "img": "./img/pizzas/Ham%20pizza.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Jalapeno pizza",
+      "description": "yammy",
+      "img": "./img/pizzas/Jalapeno%20pizza.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Mushrooms pizza",
+      "description": "yammy",
+      "img": "./img/pizzas/Mushrooms%20pizza.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Pepperoni",
+      "description": "yammy",
+      "img": "./img/pizzas/Pepperoni.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Rustic pizza",
+      "description": "yammy",
+      "img": "./img/pizzas/Rustic%20pizza.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    },
+    {
+      "name": "Vegetarian",
+      "description": "yammy",
+      "img": "./img/pizzas/Vegetarian.jpg",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "cm",
+      "sizePrice": [
+        {
+          "size": 25,
+          "price": 18.80
+        },
+        {
+          "size": 30,
+          "price": 21.15
+        }
+      ]
+    }
+  ],
+  "drinks": [
+    {
+      "name": "drink1",
+      "description": "tasty",
+      "img": "./path2.img",
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+      ],
+      "dimension": "liter",
+      "sizePrice": [
+        {
+          "size": 0.3,
+          "price": 0.9
+        },
+        {
+          "size": 0.5,
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "name": "drink2",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "liter",
+      "sizePrice": [
+        {
+          "size": 0.3,
+          "price": 0.9
+        },
+        {
+          "size": 0.5,
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "name": "drink3",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "liter",
+      "sizePrice": [
+        {
+          "size": 0.3,
+          "price": 0.9
+        },
+        {
+          "size": 0.5,
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "name": "drink4",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "liter",
+      "sizePrice": [
+        {
+          "size": 0.3,
+          "price": 0.9
+        },
+        {
+          "size": 0.5,
+          "price": 1.5
+        }
+      ]
+    },
+    {
+      "name": "drink5",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "liter",
+      "sizePrice": [
+        {
+          "size": 0.3,
+          "price": 0.9
+        },
+        {
+          "size": 0.5,
+          "price": 1.5
+        }
+      ]
+    }
+  ],
+  "desserts": [
+    {
+      "name": "dessert1",
+      "description": "tasty",
+      "img": "./path2.img",
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+      ],
+      "dimension": "gr",
+      "sizePrice": [
+        {
+          "size": 100,
+          "price": 5.00
+        },
+        {
+          "size": 200,
+          "price": 10.00
+        }
+      ]
+    },
+    {
+      "name": "dessert2",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "gr",
+      "sizePrice": [
+        {
+          "size": 100,
+          "price": 4.50
+        },
+        {
+          "size": 200,
+          "price": 9.00
+        }
+      ]
+    },
+    {
+      "name": "dessert3",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "gr",
+      "sizePrice": [
+        {
+          "size": 100,
+          "price": 4.50
+        },
+        {
+          "size": 200,
+          "price": 9.00
+        }
+      ]
+    },
+    {
+      "name": "dessert4",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "gr",
+      "sizePrice": [
+        {
+          "size": 100,
+          "price": 4.50
+        },
+        {
+          "size": 200,
+          "price": 9.00
+        }
+      ]
+    },
+    {
+      "name": "dessert5",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "gr",
+      "sizePrice": [
+        {
+          "size": 100,
+          "price": 4.50
+        },
+        {
+          "size": 200,
+          "price": 9.00
+        }
+      ]
+    },
+    {
+      "name": "dessert6",
+      "description": "yammy",
+      "img": "./path1.img",
+      "tags": [
+        "tag4",
+        "tag5",
+        "tag6"
+      ],
+      "dimension": "gr",
+      "sizePrice": [
+        {
+          "size": 100,
+          "price": 4.50
+        },
+        {
+          "size": 200,
+          "price": 9.00
+        }
+      ]
+    }
+  ]
+}

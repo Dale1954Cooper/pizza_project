@@ -13,9 +13,19 @@ import {
 import axios from "axios";
 import {MenuItemModel} from "../../../models/menu/MenuItemModel";
 import {MenuListModel} from "../../../models/menu/MenuListModel";
+import {getDatabase, ref, onValue, child} from 'firebase/database';
+import database = firebase.database;
+import {DatabaseReference} from "@firebase/database";
+
+
+const dbRef = ref(getDatabase());
 
 interface dataNames {
     names: string[];
+}
+
+interface pizzasList {
+    name: MenuItemModel[];
 }
 
 export const MenuActionCreator = {
@@ -48,7 +58,7 @@ export const MenuActionCreator = {
         payload: content
     }),
 
-    loadMenuList: () => async (dispatch: AppDispatch) => {
+    loadMenuNameList: () => async (dispatch: AppDispatch) => {
         try {
             const res = await firebase.firestore().collection('menuList').doc('list').get();
             if (res) {
@@ -60,15 +70,27 @@ export const MenuActionCreator = {
         }
     },
 
-    loadCertainMenuList: () => async (dispatch: AppDispatch) => {
+    loadMenuList: (name: string, oldArray: MenuListModel[]) => async (dispatch: AppDispatch) => {
         try {
-
+            //const res = await child(dbRef, name)
+            const res = await firebase.database().ref().child(name).get()
+            if(res.exists()){
+                const newMenuList: MenuListModel = {
+                    name: name,
+                    items: res.val()
+                }
+                const newList: MenuListModel[] = [...oldArray, newMenuList];
+                dispatch(MenuActionCreator.setMenu(newList))
+            } else {
+                ///
+            }
         } catch (e) {
-            console.log("Error in menuAction in load certain menu list =>  ", e)
+            console.log(e)
         }
     },
 
-    getMoc: (name: string, oldArray: MenuListModel[]) => async (dispatch: AppDispatch) => {
+
+   /* getMoc: (name: string, oldArray: MenuListModel[]) => async (dispatch: AppDispatch) => {
         try {
             const res = await axios.get<MenuItemModel[]>(`./${name}.json`);
             if (res) {
@@ -83,6 +105,7 @@ export const MenuActionCreator = {
             console.log(e);
         }
     },
+    */
 
     showItemCard: (content: MenuItemModel) => (dispatch: AppDispatch) => {
         dispatch(MenuActionCreator.setCardContent(content));
