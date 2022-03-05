@@ -14,12 +14,12 @@ const MenuSider: FC = () => {
     const [menuName, setMenuName] = useState('')
 
     useEffect(() => {
-        dispatch(MenuActionCreator.loadMenuList())
+        dispatch(MenuActionCreator.loadMenuNameList())
     }, []) // will load the menu list
 
     useEffect(() => {
         dispatch(MenuActionCreator.setCurrentListName(menuList[0]))
-        dispatch(MenuActionCreator.getMoc(menuList[0], menu))
+        dispatch(MenuActionCreator.loadMenuList(menuList[0], menu))
         setMenuName(menuList[0])
     }, [menuList]) // will load first menu items
 
@@ -28,7 +28,7 @@ const MenuSider: FC = () => {
         if (tempObj) {
             dispatch(MenuActionCreator.setCurrentMenuList(tempObj.items))
         } else {
-            //dispatch(MenuActionCreator.setError('ошибка загрузки меню'))
+            //
         }
     }, [menu]) // will load current menu items
 
@@ -38,7 +38,7 @@ const MenuSider: FC = () => {
         if (tempObj) {
             dispatch(MenuActionCreator.setCurrentMenuList(tempObj.items))
         } else {
-            dispatch(MenuActionCreator.getMoc(name, menu))
+            dispatch(MenuActionCreator.loadMenuList(name, menu))
         }
     }
 
